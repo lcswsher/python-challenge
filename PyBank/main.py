@@ -30,8 +30,7 @@ delta_profitloss = []
 with open(path_to_budget_file, 'r') as csvfile:
     csv_reader = csv.reader(csvfile, delimiter=',')
     
-    # print(csv_    reader)
-    # skip header row
+    # to skip header row
     header = next(csv_reader)
     
     #print(f"{header}") test for printing header rows - date and profit/Losses
@@ -50,12 +49,16 @@ with open(path_to_budget_file, 'r') as csvfile:
         r = total_monthly[i] - total_monthly[i - 1]
         delta_profitloss.append(int(r))    
 
+#calcuates the average of the delta changes from month to month 
 average_change = (sum(delta_profitloss))/(len(line_number_values)-1)
 average_change = round(float(average_change), 2)
-max_value_final = max(delta_profitloss)
-min_value_final = min(delta_profitloss)
 
 # maximum variance calculation
+max_value_final = max(delta_profitloss)
+
+# minimum variance calculation
+min_value_final = min(delta_profitloss)
+
 #    for row in delta_profitloss:
 #        if row > max_value:
 #average_change = round(average_change,2)
@@ -76,3 +79,15 @@ print (f"Total: {monthly_profit_sum}")
 print(f"Average Change: {average_change}")
 print(f"Greatest Increase in Profits: {max_value_final}")
 print(f"Greatest Decrease in Profits: {min_value_final}")
+
+# Specify the text file to write to
+output_path = os.path.join("..", "analysis", "Financial_Analysis.text")
+
+with open(output_path, 'w') as file:
+    file.write("Financial Analysis\n")
+    file.write("------------------------------\n")
+    file.write(f"Total Months: {line_number}\n")
+    file.write(f"Total: {monthly_profit_sum}\n")
+    file.write(f"Average Change: {average_change}\n")
+    file.write(f"Greatest Increase in Profits: {max_value_final}\n")
+    file.write(f"Greatest Decrease in Profits: {min_value_final}\n")
