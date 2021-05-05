@@ -60,7 +60,7 @@ min_value_final = min(delta_profitloss)
 min_month_index = delta_profitloss.index(min_value_final)
 min_month = number_months_date[min_month_index]
 
-# Print out of ananlysis summary
+# Print out of analysis summary
 print ("Financial Analysis")
 print ("------------------------------")
 print (f"Total Months: {line_number}")

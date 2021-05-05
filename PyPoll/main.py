@@ -31,7 +31,8 @@ with open(path_to_election_data, 'r') as csvfile:
         else:
             list_candidates.append(candidate)
             list_candidate_votecount.append(1)
-            
+
+#To zip two lists to combine both the candidates and number of votes into one list (of tuples).    
     list_candidates_with_votecount = list(zip(list_candidates, list_candidate_votecount))
 
     for name in list_candidates_with_votecount:
