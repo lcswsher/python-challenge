@@ -77,8 +77,8 @@ print ("------------------------------")
 print (f"Total Months: {line_number}")
 print (f"Total: {monthly_profit_sum}")
 print(f"Average Change: {average_change}")
-print(f"Greatest Increase in Profits: {max_value_final}")
-print(f"Greatest Decrease in Profits: {min_value_final}")
+print(f"Greatest Increase in Profits: (${max_value_final})")
+print(f"Greatest Decrease in Profits: (${min_value_final})")
 
 # Specify the text file to write to
 output_path = os.path.join("..", "analysis", "Financial_Analysis.text")
@@ -89,5 +89,5 @@ with open(output_path, 'w') as file:
     file.write(f"Total Months: {line_number}\n")
     file.write(f"Total: {monthly_profit_sum}\n")
     file.write(f"Average Change: {average_change}\n")
-    file.write(f"Greatest Increase in Profits: {max_value_final}\n")
-    file.write(f"Greatest Decrease in Profits: {min_value_final}\n")
+    file.write(f"Greatest Increase in Profits: (${max_value_final})\n")
+    file.write(f"Greatest Decrease in Profits: (${min_value_final})\n")
