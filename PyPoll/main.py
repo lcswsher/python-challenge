@@ -41,25 +41,13 @@ with open(path_to_election_data, 'r') as csvfile:
 #To convert the winner from a list to a string:
 win = winner[0]
 
-# print(win)
-# #prints votecount in a list for all 4 canditates
-# print(list_candidates_with_votecount)
-# #prints votecount in a list for all 4 canditates
-# print(list_candidate_votecount) 
-# print(list_candidates)
-# print(candidate_index)
-# print(max(list_candidate_votecount))
-# #print(list_candidate_votecount[candidate_index[0]])
-# #Candidates: "Khan", "Correy", "Li", "O'Tooley"
-# #Vote Count: 2218231, 704200, 492940, 105630
-# #Candidate index = 3 (4 items)
-# #Percentages: 
-
+#Calculate total voter pecentages for each candidate
 Candidate1 = round(((list_candidate_votecount[0]/line_count) * 100),8)
 Candidate2 = round(((list_candidate_votecount[1]/line_count) * 100),8)
 Candidate3 = round(((list_candidate_votecount[2]/line_count) * 100),8)
 Candidate4 = round(((list_candidate_votecount[3]/line_count) * 100),8)
 
+#To limit decimal format for percentages to 3 decimal points
 FormatCandidate1 = format(Candidate1,".3f")
 FormatCandidate2 = format(Candidate2,".3f")
 FormatCandidate3 = format(Candidate3,".3f")
