@@ -36,8 +36,8 @@ with open(path_to_election_data, 'r') as csvfile:
 
     for name in list_candidates_with_votecount:
         if max(list_candidate_votecount) == name[1]:
-            winner.append(name[0])            
-
+            winner.append(name[0])              
+            
 #To convert the winner from a list to a string:
 win = winner[0]
 
@@ -55,22 +55,27 @@ win = winner[0]
 # #Candidate index = 3 (4 items)
 # #Percentages: 
 
-Candidate1 = round(((list_candidate_votecount[0]/line_count) * 100),2)
-Candidate2 = round(((list_candidate_votecount[1]/line_count) * 100),2)
-Candidate3 = round(((list_candidate_votecount[2]/line_count) * 100),2)
-Candidate4 = round(((list_candidate_votecount[3]/line_count) * 100),2)
+Candidate1 = round(((list_candidate_votecount[0]/line_count) * 100),8)
+Candidate2 = round(((list_candidate_votecount[1]/line_count) * 100),8)
+Candidate3 = round(((list_candidate_votecount[2]/line_count) * 100),8)
+Candidate4 = round(((list_candidate_votecount[3]/line_count) * 100),8)
+
+FormatCandidate1 = format(Candidate1,".3f")
+FormatCandidate2 = format(Candidate2,".3f")
+FormatCandidate3 = format(Candidate3,".3f")
+FormatCandidate4 = format(Candidate4,".3f")
 
 # Summary of election results
 print("Election Results")
 print("------------------------------")
 print(f"Total Votes: {line_count}")
 print("------------------------------")
-print(f"{list_candidates[0]}: {Candidate1}% ({list_candidate_votecount[0]})")  
-print(f"{list_candidates[1]}: {Candidate2}% ({list_candidate_votecount[1]})")
-print(f"{list_candidates[2]}: {Candidate3}% ({list_candidate_votecount[2]})")
-print(f"{list_candidates[3]}: {Candidate4}% ({list_candidate_votecount[3]})")
+print(f"{list_candidates[0]}: {FormatCandidate1}% ({list_candidate_votecount[0]})")
+print(f"{list_candidates[1]}: {FormatCandidate2}% ({list_candidate_votecount[1]})")
+print(f"{list_candidates[2]}: {FormatCandidate3}% ({list_candidate_votecount[2]})")
+print(f"{list_candidates[3]}: {FormatCandidate4}% ({list_candidate_votecount[3]})")
 print("------------------------------")
-print(f"Winner:{win}")
+print(f"Winner: {win}")
 print("------------------------------")
 
 # Output writes to analysis\ElectionResults.txt
@@ -80,10 +85,10 @@ with open(output_path, 'w') as file:
     file.write("----------------------------\n")
     file.write(f"Total Votes: {line_count}\n")
     file.write("----------------------------\n")
-    file.write(f"{list_candidates[0]}: {Candidate1}% ({list_candidate_votecount[0]})\n")
-    file.write(f"{list_candidates[1]}: {Candidate2}% ({list_candidate_votecount[1]})\n")
-    file.write(f"{list_candidates[2]}: {Candidate3}% ({list_candidate_votecount[2]})\n")
-    file.write(f"{list_candidates[3]}: {Candidate4}% ({list_candidate_votecount[3]})\n")
+    file.write(f"{list_candidates[0]}: {FormatCandidate1}% ({list_candidate_votecount[0]})\n")
+    file.write(f"{list_candidates[1]}: {FormatCandidate2}% ({list_candidate_votecount[1]})\n")
+    file.write(f"{list_candidates[2]}: {FormatCandidate3}% ({list_candidate_votecount[2]})\n")
+    file.write(f"{list_candidates[3]}: {FormatCandidate4}% ({list_candidate_votecount[3]})\n")
     file.write("----------------------------\n")
     file.write(f"Winner: {win}\n")
     file.write("----------------------------\n")
